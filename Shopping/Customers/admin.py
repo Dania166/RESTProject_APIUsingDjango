@@ -1,5 +1,12 @@
 from django.contrib import admin
-from .models import Customer, Product, Order, Review
+from django.contrib.auth.models import AbstractUser
+from .models import Customer, Product, Order, Review, CustomUser
+from django.contrib.auth.admin import UserAdmin
+
+
+class CustomUserAdmin(UserAdmin):
+    model = CustomUser
+    admin.site.register(CustomUser)
 
 
 @admin.register(Customer)
